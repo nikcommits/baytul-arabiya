@@ -1,0 +1,16 @@
+# Local source documents and customer intake files
+*.pdf
+*.xlsx
+*.xls
+
+# Unused original media
+WhatsApp Image*
+*.jpeg
+*.jpg
+
+# Local server logs
+.server-*.log
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
