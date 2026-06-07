@@ -1,0 +1,118 @@
+<!-- Leistungen Section -->
+<section class="leistungen" id="leistungen" aria-label="Unsere flexiblen Abos">
+  <div class="container">
+    <div class="leistungen-header">
+      <h2 class="section-headline">Dein Lernrhythmus, deine Entscheidung: Unsere flexiblen Abos</h2>
+      <p class="section-text">Wähle das Modell, das sich deinem Leben anpasst – nicht umgekehrt.</p>
+    </div>
+    
+    <div class="abo-grid">
+      <!-- Entdecker Abo -->
+      <div class="abo-card">
+        <div class="abo-icon">🌱</div>
+        <h3 class="abo-title">Das Entdecker-Abo</h3>
+        <span class="abo-frequency">1x pro Woche</span>
+        <p class="abo-desc"><strong>Für einen entspannten Start.</strong> Ideal für einen vollen Terminkalender. Baue ohne Stress ein solides Fundament auf und bleibe durch den Austausch mit deinen Mitschülern kontinuierlich am Ball.</p>
+      </div>
+
+      <!-- Routine Abo -->
+      <div class="abo-card abo-card-highlight">
+        <div class="abo-badge">⭐ Bestseller</div>
+        <div class="abo-icon">⭐</div>
+        <h3 class="abo-title">Das Routine-Abo</h3>
+        <span class="abo-frequency">2x pro Woche</span>
+        <p class="abo-desc">Mache die arabische Sprache zu einer festen Gewohnheit. Durch die doppelte Interaktion überwindest du Sprechblockaden deutlich schneller und feierst rasante, sichtbare Erfolge.</p>
+      </div>
+
+      <!-- Intensiv Abo -->
+      <div class="abo-card">
+        <div class="abo-icon">🚀</div>
+        <h3 class="abo-title">Das Intensiv-Abo</h3>
+        <span class="abo-frequency">3x pro Woche</span>
+        <p class="abo-desc"><strong>Für den maximalen Fokus.</strong> Tauche tief in die Sprache ein. Perfekt für alle, die in Rekordzeit fließend kommunizieren und komplexe Texte verstehen möchten.</p>
+      </div>
+
+      <!-- Kids Abo -->
+      <div class="abo-card">
+        <div class="abo-icon">🧸</div>
+        <h3 class="abo-title">Bayatularabiyyah Kids</h3>
+        <span class="abo-frequency">Kindergerecht</span>
+        <p class="abo-desc"><strong>Sicherheit für Eltern, Spaß für Kinder.</strong> In kleinen, geschützten Gruppen lernen Kinder die Sprache spielerisch und ohne Leistungsdruck kennen. Betreut von einfühlsamen Lehrkräften, kannst du dich als Elternteil entspannt zurücklehnen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.leistungen {
+  background-color: var(--color-bg);
+  padding: var(--space-xl) 0;
+}
+.leistungen-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-lg);
+}
+.abo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+.abo-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.abo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+.abo-card-highlight {
+  border: 2px solid var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+.abo-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.abo-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+.abo-title {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+.abo-frequency {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+.abo-desc {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+  flex: 1;
+}
+.abo-desc strong {
+  color: var(--color-text);
+}
+</style>

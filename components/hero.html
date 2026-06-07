@@ -1,0 +1,64 @@
+<!-- Hero Section -->
+<section class="hero" aria-label="Startseite">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <img src="assets/Logo-mit-Schrift.png" alt="Bayatularabiyyah Logo" class="hero-logo" width="200" height="auto">
+      <h1 class="hero-headline">Sprich Arabisch mit Selbstvertrauen – in einer Gemeinschaft, die dich trägt.</h1>
+      <p class="hero-text">
+        Ob du als Anfänger endlich den Koran im Original verstehen möchtest oder als Elternteil eine sichere, spielerische Lernumgebung für dein Kind suchst: Bei Bayatularabiyyah lernst du nicht nur eine Sprache, du lebst sie. Interaktiv, motivierend und genau auf deinen Alltag zugeschnitten.
+      </p>
+      <a href="#cta" class="btn btn-primary">Jetzt starten</a>
+    </div>
+    <div class="hero-image-wrapper">
+      <img src="assets/hero-bg.jpg" alt="Arabische Buchstaben und Schreibfeder" class="hero-image" width="800" height="auto" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<style>
+.hero {
+  background-color: var(--color-bg);
+  padding: var(--space-lg) 0;
+}
+.hero-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+.hero-content {
+  flex: 1;
+}
+.hero-logo {
+  margin-bottom: var(--space-md);
+  max-width: 200px;
+}
+.hero-headline {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+  color: var(--color-primary);
+}
+.hero-text {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+.hero-image-wrapper {
+  flex: 1;
+}
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-headline {
+    font-size: 2rem;
+  }
+}
+</style>
