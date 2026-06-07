@@ -3,20 +3,190 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bayatularabiyyah - Sprich Arabisch mit Selbstvertrauen</title>
+  <title>Baytul Arabiyah - Sprich Arabisch mit Selbstvertrauen</title>
   <meta name="description" content="Schluss mit Frust beim Arabischlernen. Interaktiver Live-Gruppenunterricht für Erwachsene und Kinder.">
   <link rel="stylesheet" href="styles/system.css">
 </head>
 <body>
+  <!-- Header Section -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="header-logo-link">
+        <img src="assets/logo-symbol.png" alt="Baytul Arabiyah Symbol" class="header-logo">
+        <span class="header-brand-name">Baytul Arabiyah</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
+        <span class="hamburger"></span>
+      </button>
+      <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation">
+        <ul class="nav-list">
+          <li><a href="#leistungen" class="nav-link">Einzel-Abos</a></li>
+          <li><a href="#gruppenunterricht" class="nav-link">Gruppenunterricht</a></li>
+          <li><a href="#kids" class="nav-link">Kids</a></li>
+          <li><a href="#cta" class="btn btn-primary nav-cta">Jetzt starten</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <style>
+  /* Mobile-first Header */
+  .site-header {
+    background-color: var(--color-bg);
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid var(--color-bg-alt);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-logo {
+    max-height: 40px;
+    width: auto;
+    display: block;
+  }
+  .header-brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+  }
+  .hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-primary);
+    position: relative;
+    transition: background-color 0.2s ease;
+  }
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: transform 0.2s ease, top 0.2s ease;
+  }
+  .hamburger::before { top: -6px; }
+  .hamburger::after { top: 6px; }
+
+  .mobile-menu-toggle[aria-expanded="true"] .hamburger {
+    background-color: transparent;
+  }
+  .mobile-menu-toggle[aria-expanded="true"] .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .mobile-menu-toggle[aria-expanded="true"] .hamburger::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-bg);
+    padding: var(--space-md) var(--space-sm);
+    box-shadow: var(--shadow-md);
+    display: none;
+    flex-direction: column;
+  }
+  .main-nav.is-open {
+    display: flex;
+  }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-link {
+    font-weight: 500;
+    color: var(--color-text);
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+  }
+  .nav-link:hover {
+    color: var(--color-accent);
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 768px) {
+    .mobile-menu-toggle {
+      display: none;
+    }
+    .main-nav {
+      position: static;
+      display: flex;
+      flex-direction: row;
+      width: auto;
+      padding: 0;
+      box-shadow: none;
+      background-color: transparent;
+    }
+    .nav-list {
+      flex-direction: row;
+      gap: var(--space-md);
+    }
+  }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.querySelector('.mobile-menu-toggle');
+      const nav = document.querySelector('.main-nav');
+      const navLinks = document.querySelectorAll('.nav-link, .nav-cta');
+      
+      toggleBtn.addEventListener('click', () => {
+        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', !isExpanded);
+        nav.classList.toggle('is-open');
+      });
+
+      // Close menu when a link is clicked
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          nav.classList.remove('is-open');
+        });
+      });
+    });
+  </script>
+
   <main>
 <!-- Hero Section -->
 <section class="hero" aria-label="Startseite">
   <div class="container hero-container">
     <div class="hero-content">
-      <img src="assets/Logo-mit-Schrift.png" alt="Bayatularabiyyah Logo" class="hero-logo" width="200" height="auto">
       <h1 class="hero-headline">Sprich Arabisch mit Selbstvertrauen – in einer Gemeinschaft, die dich trägt.</h1>
       <p class="hero-text">
-        Ob du als Anfänger endlich den Koran im Original verstehen möchtest oder als Elternteil eine sichere, spielerische Lernumgebung für dein Kind suchst: Bei Bayatularabiyyah lernst du nicht nur eine Sprache, du lebst sie. Interaktiv, motivierend und genau auf deinen Alltag zugeschnitten.
+        Ob du als Anfänger endlich den Koran im Original verstehen möchtest oder als Elternteil eine sichere, spielerische Lernumgebung für dein Kind suchst: Bei Baytul Arabiyah lernst du nicht nur eine Sprache, du lebst sie. Interaktiv, motivierend und genau auf deinen Alltag zugeschnitten.
       </p>
       <a href="#cta" class="btn btn-primary">Jetzt starten</a>
     </div>
@@ -38,10 +208,6 @@
 }
 .hero-content {
   flex: 1;
-}
-.hero-logo {
-  margin-bottom: var(--space-md);
-  max-width: 200px;
 }
 .hero-headline {
   font-size: 2.5rem;
@@ -83,7 +249,7 @@
         Du hast schon oft versucht, Arabisch zu lernen, aber es war schwer dranzubleiben? Die Grammatik war zu trocken und du saßt allein vor starren Videokursen? Wir wissen: Alleine Vokabeln pauken funktioniert nicht und raubt dir die Energie.
       </p>
       <p class="section-text highlight-text">
-        Deshalb setzen wir bei Bayatularabiyyah auf <strong>interaktiven Live-Gruppenunterricht</strong>. Anstatt passiv zuzuhören, kommst du vom ersten Tag an ins Sprechen. Die Gruppendynamik zieht dich mit und motiviert dich, dranzubleiben – ganz ohne den unangenehmen Druck und Wettbewerb klassischer Schulsysteme.
+        Deshalb setzen wir bei Baytul Arabiyah auf <strong>interaktiven Live-Gruppenunterricht</strong>. Anstatt passiv zuzuhören, kommst du vom ersten Tag an ins Sprechen. Die Gruppendynamik zieht dich mit und motiviert dich, dranzubleiben – ganz ohne den unangenehmen Druck und Wettbewerb klassischer Schulsysteme.
       </p>
     </div>
   </div>
@@ -125,7 +291,7 @@
 <section class="leistungen" id="leistungen" aria-label="Unsere flexiblen Abos">
   <div class="container">
     <div class="leistungen-header">
-      <h2 class="section-headline">Dein Lernrhythmus, deine Entscheidung: Unsere flexiblen Abos</h2>
+      <h2 class="section-headline">Dein Lernrhythmus, deine Entscheidung: Einzel-Abos</h2>
       <p class="section-text">Wähle das Modell, das sich deinem Leben anpasst – nicht umgekehrt.</p>
     </div>
     
@@ -135,16 +301,16 @@
         <div class="abo-icon">🌱</div>
         <h3 class="abo-title">Das Entdecker-Abo</h3>
         <span class="abo-frequency">1x pro Woche</span>
-        <p class="abo-desc"><strong>Für einen entspannten Start.</strong> Ideal für einen vollen Terminkalender. Baue ohne Stress ein solides Fundament auf und bleibe durch den Austausch mit deinen Mitschülern kontinuierlich am Ball.</p>
+        <p class="abo-desc"><strong>Für einen entspannten Start.</strong> Ideal für einen vollen Terminkalender. Baue ohne Stress ein solides Fundament auf und bleibe kontinuierlich am Ball.</p>
       </div>
 
       <!-- Routine Abo -->
       <div class="abo-card abo-card-highlight">
-        <div class="abo-badge">⭐ Bestseller</div>
+        <div class="abo-badge">⭐ Beliebt</div>
         <div class="abo-icon">⭐</div>
         <h3 class="abo-title">Das Routine-Abo</h3>
         <span class="abo-frequency">2x pro Woche</span>
-        <p class="abo-desc">Mache die arabische Sprache zu einer festen Gewohnheit. Durch die doppelte Interaktion überwindest du Sprechblockaden deutlich schneller und feierst rasante, sichtbare Erfolge.</p>
+        <p class="abo-desc">Mache die arabische Sprache zu einer festen Gewohnheit. Durch die doppelte Interaktion überwindest du Sprechblockaden deutlich schneller.</p>
       </div>
 
       <!-- Intensiv Abo -->
@@ -154,13 +320,69 @@
         <span class="abo-frequency">3x pro Woche</span>
         <p class="abo-desc"><strong>Für den maximalen Fokus.</strong> Tauche tief in die Sprache ein. Perfekt für alle, die in Rekordzeit fließend kommunizieren und komplexe Texte verstehen möchten.</p>
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Kids Abo -->
+<!-- Gruppenunterricht Section -->
+<section class="gruppenunterricht" id="gruppenunterricht" aria-label="Gruppenunterricht">
+  <div class="container">
+    <div class="leistungen-header">
+      <h2 class="section-headline">Gemeinsam zum Ziel: Unser Gruppenunterricht</h2>
+      <p class="section-text">Lerne in motivierten Kleingruppen (ab 4 Schülern). Die Gruppendynamik zieht dich mit!</p>
+    </div>
+    
+    <div class="abo-grid">
+      <!-- 2x pro Woche -->
       <div class="abo-card">
-        <div class="abo-icon">🧸</div>
-        <h3 class="abo-title">Bayatularabiyyah Kids</h3>
-        <span class="abo-frequency">Kindergerecht</span>
-        <p class="abo-desc"><strong>Sicherheit für Eltern, Spaß für Kinder.</strong> In kleinen, geschützten Gruppen lernen Kinder die Sprache spielerisch und ohne Leistungsdruck kennen. Betreut von einfühlsamen Lehrkräften, kannst du dich als Elternteil entspannt zurücklehnen.</p>
+        <div class="abo-icon">👥</div>
+        <h3 class="abo-title">Basis-Gruppe</h3>
+        <span class="abo-frequency">2x pro Woche</span>
+        <p class="abo-desc"><strong>Der ideale Einstieg in der Gruppe.</strong> Perfekt, um neben dem Beruf oder Studium kontinuierlich Arabisch zu lernen. Gemeinsam bleibt die Motivation hoch.</p>
+      </div>
+
+      <!-- 3x pro Woche -->
+      <div class="abo-card abo-card-highlight">
+        <div class="abo-badge">⭐ Bestseller</div>
+        <div class="abo-icon">💬</div>
+        <h3 class="abo-title">Fokus-Gruppe</h3>
+        <span class="abo-frequency">3x pro Woche</span>
+        <p class="abo-desc"><strong>Für schnellere Fortschritte.</strong> Durch den regelmäßigen Austausch in der Gruppe kommst du zügig ins Sprechen und festigst das Gelernte nachhaltig.</p>
+      </div>
+
+      <!-- 4x pro Woche -->
+      <div class="abo-card">
+        <div class="abo-icon">🔥</div>
+        <h3 class="abo-title">Intensiv-Gruppe</h3>
+        <span class="abo-frequency">4x pro Woche</span>
+        <p class="abo-desc"><strong>Maximale Immersion.</strong> In dieser intensiven Gruppe tauchst du tief in die Sprache ein und machst in kürzester Zeit gewaltige Sprünge – fast wie bei einem Aufenthalt im Ausland.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kids Section -->
+<section class="kids-section" id="kids" aria-label="Baytul Arabiyah Kids">
+  <div class="container">
+    <div class="kids-layout">
+      <div class="kids-content">
+        <div class="kids-badge">🧸 Kinderunterricht</div>
+        <h2 class="section-headline">Baytul Arabiyah Kids</h2>
+        <p class="kids-subtitle">Sicherheit für Eltern, Spaß für Kinder.</p>
+        <p class="kids-text">
+          Unser pädagogisch aufgebauter Kinderunterricht schafft eine Umgebung, in der Lernen Freude macht. In kleinen, geschützten Gruppen lernen Kinder die arabische Sprache spielerisch, intuitiv und völlig ohne Leistungsdruck kennen.
+        </p>
+        <ul class="kids-features">
+          <li><strong>Pädagogisches Konzept:</strong> Altersgerechte Methoden, die Neugier wecken.</li>
+          <li><strong>Einfühlsame Lehrkräfte:</strong> Speziell für die Arbeit mit Kindern geschult.</li>
+          <li><strong>Stressfreie Zone:</strong> Kein Druck, sondern spielerisches Entdecken der Sprache.</li>
+        </ul>
+        <p class="kids-text highlight">
+          Während dein Kind in besten Händen ist, kannst du dich als Elternteil entspannt zurücklehnen.
+        </p>
+      </div>
+      <div class="kids-visual">
+        <img src="assets/baytul-arabiyah-kids-lernen-spielerisch.jpg" alt="Baytul Arabiyah Kids lernen spielerisch" class="kids-image" width="800" height="auto" loading="lazy">
       </div>
     </div>
   </div>
@@ -170,6 +392,92 @@
 .leistungen {
   background-color: var(--color-bg);
   padding: var(--space-xl) 0;
+}
+.gruppenunterricht {
+  background-color: var(--color-bg-alt);
+  padding: var(--space-xl) 0;
+}
+.kids-section {
+  background-color: var(--color-bg);
+  padding: var(--space-xl) 0;
+}
+.kids-layout {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+}
+.kids-content {
+  flex: 1;
+}
+.kids-visual {
+  flex: 0.8;
+}
+.kids-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  object-fit: cover;
+  display: block;
+}
+.kids-badge {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-sm);
+}
+.kids-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+.kids-text {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+.kids-text.highlight {
+  font-weight: 500;
+  color: var(--color-text);
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1rem;
+}
+.kids-features {
+  list-style: none;
+  margin-bottom: var(--space-md);
+}
+.kids-features li {
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+.kids-features li::before {
+  content: '✓';
+  color: var(--color-accent);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+.kids-card-highlight {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--color-primary);
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .kids-layout {
+    flex-direction: column;
+  }
 }
 .leistungen-header {
   text-align: center;
