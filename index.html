@@ -13,7 +13,7 @@
 <section class="hero" aria-label="Startseite">
   <div class="container hero-container">
     <div class="hero-content">
-      <img src="assets/Logo-mit-Schrift.png" alt="Bayatularabiyyah Logo" class="hero-logo" width="200" height="auto">
+      <img src="assets/Logo-mit-Schrift.png" alt="Bayatularabiyyah Logo" class="hero-logo" width="200">
       <h1 class="hero-headline">Sprich Arabisch mit Selbstvertrauen – in einer Gemeinschaft, die dich trägt.</h1>
       <p class="hero-text">
         Ob du als Anfänger endlich den Koran im Original verstehen möchtest oder als Elternteil eine sichere, spielerische Lernumgebung für dein Kind suchst: Bei Bayatularabiyyah lernst du nicht nur eine Sprache, du lebst sie. Interaktiv, motivierend und genau auf deinen Alltag zugeschnitten.
@@ -21,58 +21,11 @@
       <a href="#cta" class="btn btn-primary">Jetzt starten</a>
     </div>
     <div class="hero-image-wrapper">
-      <img src="assets/hero-bg.jpg" alt="Arabische Buchstaben und Schreibfeder" class="hero-image" width="800" height="auto" loading="lazy">
+      <img src="assets/hero-bg.jpg" alt="Arabische Buchstaben und Schreibfeder" class="hero-image" width="800" loading="lazy">
     </div>
   </div>
 </section>
 
-<style>
-.hero {
-  background-color: var(--color-bg);
-  padding: var(--space-lg) 0;
-}
-.hero-container {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xl);
-}
-.hero-content {
-  flex: 1;
-}
-.hero-logo {
-  margin-bottom: var(--space-md);
-  max-width: 200px;
-}
-.hero-headline {
-  font-size: 2.5rem;
-  margin-bottom: var(--space-sm);
-  color: var(--color-primary);
-}
-.hero-text {
-  font-size: 1.125rem;
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-md);
-}
-.hero-image-wrapper {
-  flex: 1;
-}
-.hero-image {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-}
-
-@media (max-width: 768px) {
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  .hero-headline {
-    font-size: 2rem;
-  }
-}
-</style>
 
 <!-- Problem-Lösung Section -->
 <section class="problem-loesung" id="problem-loesung" aria-label="Unsere Lösung">
@@ -89,37 +42,6 @@
   </div>
 </section>
 
-<style>
-.problem-loesung {
-  background-color: var(--color-bg-alt);
-  padding: var(--space-xl) 0;
-  text-align: center;
-}
-.problem-container {
-  max-width: 800px;
-}
-.section-headline {
-  font-size: 2rem;
-  margin-bottom: var(--space-md);
-}
-.section-text {
-  font-size: 1.125rem;
-  color: var(--color-text-muted);
-}
-.highlight-text {
-  margin-top: var(--space-md);
-  padding: var(--space-md);
-  background-color: var(--color-white);
-  border-left: 4px solid var(--color-accent);
-  border-radius: var(--radius-sm);
-  color: var(--color-text);
-  box-shadow: var(--shadow-sm);
-  text-align: left;
-}
-.highlight-text strong {
-  color: var(--color-primary);
-}
-</style>
 
 <!-- Leistungen Section -->
 <section class="leistungen" id="leistungen" aria-label="Unsere flexiblen Abos">
@@ -166,79 +88,6 @@
   </div>
 </section>
 
-<style>
-.leistungen {
-  background-color: var(--color-bg);
-  padding: var(--space-xl) 0;
-}
-.leistungen-header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto var(--space-lg);
-}
-.abo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-md);
-}
-.abo-card {
-  background-color: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.abo-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
-}
-.abo-card-highlight {
-  border: 2px solid var(--color-accent);
-  box-shadow: var(--shadow-md);
-}
-.abo-badge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--color-accent);
-  color: var(--color-white);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.abo-icon {
-  font-size: 2.5rem;
-  margin-bottom: var(--space-sm);
-}
-.abo-title {
-  font-size: 1.25rem;
-  color: var(--color-primary);
-  margin-bottom: 4px;
-}
-.abo-frequency {
-  display: block;
-  font-size: 0.9rem;
-  color: var(--color-accent);
-  font-weight: 600;
-  margin-bottom: var(--space-sm);
-}
-.abo-desc {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 0;
-  flex: 1;
-}
-.abo-desc strong {
-  color: var(--color-text);
-}
-</style>
 
 <!-- CTA Section -->
 <section class="cta" id="cta" aria-label="Jetzt starten">
@@ -253,39 +102,6 @@
   </div>
 </section>
 
-<style>
-.cta {
-  background-color: var(--color-primary-dark);
-  padding: var(--space-xl) 0;
-  text-align: center;
-  color: var(--color-white);
-}
-.cta-container {
-  max-width: 800px;
-}
-.cta-content {
-  background-color: var(--color-primary);
-  padding: var(--space-lg) var(--space-md);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-}
-.cta-headline {
-  color: var(--color-white);
-  font-size: 2.25rem;
-  margin-bottom: var(--space-sm);
-}
-.cta-text {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: var(--space-lg);
-}
-.btn-large {
-  font-size: 1.1rem;
-  padding: 1rem 2rem;
-  width: 100%;
-  max-width: 500px;
-}
-</style>
 
   </main>
 </body>
