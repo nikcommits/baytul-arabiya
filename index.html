@@ -23,6 +23,7 @@
           <li><a href="#leistungen" class="nav-link">Einzel-Abos</a></li>
           <li><a href="#gruppenunterricht" class="nav-link">Gruppenunterricht</a></li>
           <li><a href="#kids" class="nav-link">Kids</a></li>
+          <li><a href="lehrer.html" class="nav-link">Unsere Lehrer</a></li>
           <li><a href="#cta" class="btn btn-primary nav-cta">Jetzt starten</a></li>
         </ul>
       </nav>
@@ -298,7 +299,9 @@
     <div class="abo-grid">
       <!-- Entdecker Abo -->
       <div class="abo-card">
-        <div class="abo-icon">🌱</div>
+        <div class="abo-icon-wrapper">
+          <div class="abo-icon">🌱</div>
+        </div>
         <h3 class="abo-title">Das Entdecker-Abo</h3>
         <span class="abo-frequency">1x pro Woche</span>
         <p class="abo-desc"><strong>Für einen entspannten Start.</strong> Ideal für einen vollen Terminkalender. Baue ohne Stress ein solides Fundament auf und bleibe kontinuierlich am Ball.</p>
@@ -307,7 +310,9 @@
       <!-- Routine Abo -->
       <div class="abo-card abo-card-highlight">
         <div class="abo-badge">⭐ Beliebt</div>
-        <div class="abo-icon">⭐</div>
+        <div class="abo-icon-wrapper">
+          <div class="abo-icon">⭐</div>
+        </div>
         <h3 class="abo-title">Das Routine-Abo</h3>
         <span class="abo-frequency">2x pro Woche</span>
         <p class="abo-desc">Mache die arabische Sprache zu einer festen Gewohnheit. Durch die doppelte Interaktion überwindest du Sprechblockaden deutlich schneller.</p>
@@ -315,7 +320,9 @@
 
       <!-- Intensiv Abo -->
       <div class="abo-card">
-        <div class="abo-icon">🚀</div>
+        <div class="abo-icon-wrapper">
+          <div class="abo-icon">🚀</div>
+        </div>
         <h3 class="abo-title">Das Intensiv-Abo</h3>
         <span class="abo-frequency">3x pro Woche</span>
         <p class="abo-desc"><strong>Für den maximalen Fokus.</strong> Tauche tief in die Sprache ein. Perfekt für alle, die in Rekordzeit fließend kommunizieren und komplexe Texte verstehen möchten.</p>
@@ -335,7 +342,9 @@
     <div class="abo-grid">
       <!-- 2x pro Woche -->
       <div class="abo-card">
-        <div class="abo-icon">👥</div>
+        <div class="abo-icon-wrapper">
+          <div class="abo-icon">👥</div>
+        </div>
         <h3 class="abo-title">Basis-Gruppe</h3>
         <span class="abo-frequency">2x pro Woche</span>
         <p class="abo-desc"><strong>Der ideale Einstieg in der Gruppe.</strong> Perfekt, um neben dem Beruf oder Studium kontinuierlich Arabisch zu lernen. Gemeinsam bleibt die Motivation hoch.</p>
@@ -344,7 +353,9 @@
       <!-- 3x pro Woche -->
       <div class="abo-card abo-card-highlight">
         <div class="abo-badge">⭐ Bestseller</div>
-        <div class="abo-icon">💬</div>
+        <div class="abo-icon-wrapper">
+          <div class="abo-icon">💬</div>
+        </div>
         <h3 class="abo-title">Fokus-Gruppe</h3>
         <span class="abo-frequency">3x pro Woche</span>
         <p class="abo-desc"><strong>Für schnellere Fortschritte.</strong> Durch den regelmäßigen Austausch in der Gruppe kommst du zügig ins Sprechen und festigst das Gelernte nachhaltig.</p>
@@ -352,7 +363,9 @@
 
       <!-- 4x pro Woche -->
       <div class="abo-card">
-        <div class="abo-icon">🔥</div>
+        <div class="abo-icon-wrapper">
+          <div class="abo-icon">🔥</div>
+        </div>
         <h3 class="abo-title">Intensiv-Gruppe</h3>
         <span class="abo-frequency">4x pro Woche</span>
         <p class="abo-desc"><strong>Maximale Immersion.</strong> In dieser intensiven Gruppe tauchst du tief in die Sprache ein und machst in kürzester Zeit gewaltige Sprünge – fast wie bei einem Aufenthalt im Ausland.</p>
@@ -486,65 +499,81 @@
 }
 .abo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
 }
 .abo-card {
-  background-color: var(--color-white);
   border-radius: var(--radius-lg);
-  padding: var(--space-md);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
 }
 .abo-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-float);
 }
+
 .abo-card-highlight {
   border: 2px solid var(--color-accent);
   box-shadow: var(--shadow-md);
 }
+
 .abo-badge {
   position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: -18px;
   background-color: var(--color-accent);
-  color: var(--color-white);
-  padding: 4px 12px;
-  border-radius: 20px;
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 30px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
 }
+
+.abo-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--color-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-inner);
+}
+
 .abo-icon {
   font-size: 2.5rem;
-  margin-bottom: var(--space-sm);
+  line-height: 1;
 }
 .abo-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--color-primary);
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 .abo-frequency {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--color-accent);
-  font-weight: 600;
-  margin-bottom: var(--space-sm);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
 }
 .abo-desc {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-bottom: 0;
   flex: 1;
-}
-.abo-desc strong {
-  color: var(--color-text);
+  opacity: 0.9;
 }
 </style>
 
@@ -596,5 +625,24 @@
 </style>
 
   </main>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Elemente für die Scroll-Animation vorbereiten
+  const elementsToAnimate = document.querySelectorAll('.abo-card, .feature, .zielgruppe-card, .problem-text-box, .hero-text, .cta-content, .teacher-profile');
+  elementsToAnimate.forEach(el => el.classList.add('animate-on-scroll'));
+
+  // Intersection Observer einrichten
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+});
+</script>
 </body>
 </html>
