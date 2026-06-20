@@ -1,15 +1,101 @@
-<!-- CTA Section -->
-<section class="cta" id="cta" aria-label="Jetzt starten">
+<!-- CTA Section: 15-Minuten-Einstufung -->
+<section class="cta" id="cta" aria-label="Jetzt 15-Minuten-Einstufung sichern">
   <div class="container cta-container">
     <div class="cta-content">
       <h2 class="cta-headline">Dein erstes arabisches Wort wartet auf dich.</h2>
       <p class="cta-text">
-        Lass uns gemeinsam herausfinden, welches Lernmodell am besten zu dir oder deinem Kind passt. Mach den ersten Schritt völlig risikofrei.
+        Bevor du dich für ein Abo entscheidest, finden wir gemeinsam deinen perfekten Startpunkt – in einem völlig entspannten <strong>15-Minuten-Kennenlernen</strong>. Keine Prüfung, kein Notendruck. Nur ein kurzes Gespräch, damit du im richtigen Kurs landest.
       </p>
-      <a href="#" class="btn btn-primary btn-large">Jetzt unverbindliche Probestunde buchen und unsere Gemeinschaft kennenlernen!</a>
+
+      <div class="cta-slicing">
+        <div class="cta-slice">
+          <h3 class="cta-slice-title">Für dich als Erwachsene/r</h3>
+          <p class="cta-slice-text">Finde dein Niveau und starte direkt in eine Gruppe, in der du wirklich zu Wort kommst.</p>
+        </div>
+        <div class="cta-slice">
+          <h3 class="cta-slice-title">Für dein Kind</h3>
+          <p class="cta-slice-text">Wir schauen gemeinsam, in welcher geschützten Kids-Gruppe sich dein Kind am wohlsten fühlt.</p>
+        </div>
+      </div>
+
+      <p class="cta-text cta-whatsapp-note">
+        Hinterlasse uns Name, E-Mail und WhatsApp-Nummer. <strong>Warum WhatsApp?</strong> Damit wir dir den Zugangslink bequem und blitzschnell direkt aufs Handy schicken – kein E-Mail-Suchen, kein Stress.
+      </p>
+
+      <form class="cta-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleEinstufungSubmit(event)">
+        <input type="hidden" name="access_key" value="DEIN_BAYTUL_ACCESS_KEY">
+        <input type="hidden" name="subject" value="Neue 15-Min-Einstufung – Baytul Arabiyah">
+        <input type="hidden" name="from_name" value="Baytul Arabiyah Einstufungs-Formular">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="cta-form-grid">
+          <div class="cta-form-group">
+            <label for="cta-name">Dein Name *</label>
+            <input type="text" id="cta-name" name="name" placeholder="Dein Name" required>
+          </div>
+          <div class="cta-form-group">
+            <label for="cta-email">E-Mail *</label>
+            <input type="email" id="cta-email" name="email" placeholder="du@beispiel.de" required>
+          </div>
+          <div class="cta-form-group">
+            <label for="cta-whatsapp">WhatsApp-Nummer *</label>
+            <input type="tel" id="cta-whatsapp" name="whatsapp" placeholder="+49 151 23456789" inputmode="tel" autocomplete="tel" pattern="^[+0-9][0-9\s()\/.-]{6,}$" title="Bitte gib eine gültige WhatsApp-Nummer ein, z. B. +49 151 23456789." required>
+          </div>
+          <div class="cta-form-group">
+            <label for="cta-fuer">Die Einstufung ist für …</label>
+            <select id="cta-fuer" name="fuer">
+              <option value="Mich (Erwachsene/r)">Mich (Erwachsene/r)</option>
+              <option value="Mein Kind">Mein Kind</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-large">15-Minuten-Einstufung sichern</button>
+        <p id="ctaFormStatus" class="cta-form-status" role="status" aria-live="polite"></p>
+        <p class="cta-form-microcopy">100&nbsp;% risikofrei. Wir hassen Spam genauso wie du.</p>
+      </form>
     </div>
   </div>
 </section>
+
+<script>
+async function handleEinstufungSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const status = document.getElementById('ctaFormStatus');
+  const defaultButtonText = btn.textContent;
+  const formData = new FormData(form);
+
+  status.textContent = 'Wird gesendet...';
+  status.className = 'cta-form-status';
+  btn.disabled = true;
+  btn.textContent = 'Wird gesendet...';
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(formData))
+    });
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(result.message || 'Die Anfrage konnte nicht gesendet werden.');
+    }
+
+    status.textContent = 'Danke! Wir melden uns in Kürze per WhatsApp bei dir.';
+    status.classList.add('success');
+    btn.textContent = 'Anfrage gesendet';
+    form.reset();
+  } catch (error) {
+    status.textContent = 'Das hat leider nicht geklappt. Bitte versuch es erneut.';
+    status.classList.add('error');
+    btn.textContent = defaultButtonText;
+    btn.disabled = false;
+  }
+}
+</script>
 
 <style>
 .cta {
@@ -35,12 +121,93 @@
 .cta-text {
   font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+.cta-slicing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  text-align: left;
+}
+.cta-slice {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+}
+.cta-slice-title {
+  color: var(--color-white);
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+.cta-slice-text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  margin: 0;
+}
+.cta-whatsapp-note {
+  font-size: 1rem;
+}
+.cta-form {
+  text-align: left;
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.cta-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+@media (min-width: 600px) {
+  .cta-form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.cta-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cta-form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.cta-form-group input,
+.cta-form-group select {
+  padding: 0.7rem;
+  border: 1px solid var(--color-bg-alt);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-family: inherit;
+}
+.cta-form-status {
+  margin-top: var(--space-sm);
+  font-weight: 600;
+  min-height: 1.2em;
+}
+.cta-form-status.success {
+  color: var(--color-accent);
+}
+.cta-form-status.error {
+  color: #c0392b;
+}
+.cta-form-microcopy {
+  margin-top: var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
 }
 .btn-large {
   font-size: 1.1rem;
   padding: 1rem 2rem;
   width: 100%;
   max-width: 500px;
+}
+@media (max-width: 600px) {
+  .cta-slicing {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

@@ -1,0 +1,97 @@
+<!-- Vergleich Section: Warum andere Wege scheitern -->
+<section class="vergleich" id="vergleich" aria-label="Warum andere Wege scheitern">
+  <div class="container">
+    <div class="vergleich-header">
+      <h2 class="section-headline">Warum andere Wege beim Arabischlernen scheitern</h2>
+      <p class="section-text">Du hast es wahrscheinlich schon versucht. Hier ist, woran es lag – und was bei uns anders läuft.</p>
+    </div>
+
+    <div class="vergleich-grid">
+      <!-- Apps -->
+      <div class="vergleich-card">
+        <div class="vergleich-icon">📱</div>
+        <h3 class="vergleich-title">Lern-Apps</h3>
+        <p class="vergleich-desc">Sie korrigieren dich nie. Du übst falsche Aussprache und falsche Sätze unbemerkt ein – und merkst es erst, wenn du wirklich sprechen musst.</p>
+      </div>
+
+      <!-- Massenkurse -->
+      <div class="vergleich-card">
+        <div class="vergleich-icon">🎥</div>
+        <h3 class="vergleich-title">Große Massenkurse & Videokurse</h3>
+        <p class="vergleich-desc">In 30-Personen-Gruppen oder vor dem Bildschirm gehst du unter. Du kommst nie selbst zu Wort und bleibst passiver Zuschauer statt aktiver Sprecher.</p>
+      </div>
+
+      <!-- Baytul Arabiyah -->
+      <div class="vergleich-card vergleich-card-highlight">
+        <div class="vergleich-badge">⭐ Unser Weg</div>
+        <div class="vergleich-icon">💬</div>
+        <h3 class="vergleich-title">Baytul Arabiyah Live-Unterricht</h3>
+        <p class="vergleich-desc">Kleine Gruppe, echtes Zuhören, freundliche Korrektur in Echtzeit. Du sprichst ab Tag 1 mit – und bleibst dran, weil dich die Gemeinschaft trägt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.vergleich {
+  background-color: var(--color-bg-alt);
+  padding: var(--space-xl) 0;
+}
+.vergleich-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-lg);
+}
+.vergleich-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+.vergleich-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.vergleich-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+.vergleich-card-highlight {
+  border: 2px solid var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+.vergleich-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.vergleich-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+.vergleich-title {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+.vergleich-desc {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+  flex: 1;
+}
+</style>
